@@ -12,6 +12,15 @@ export function hideNotification(){
     }
 }
 
+export function flashNotification(text,timeout){
+    return function(dispatch,getState){
+        dispatch(showNotification(text));
+        setTimeout(() => {
+            dispatch(hideNotification());
+        }, timeout);
+    }
+}
+
 
 export default function notifications (state={active:false,text:''}, action){
     switch(action.type){

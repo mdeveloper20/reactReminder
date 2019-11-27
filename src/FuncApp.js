@@ -2,7 +2,7 @@ import React from 'react';
 import logo from './logo.svg';
 import './App.css';
 import { connect } from 'react-redux';
-import {showNotification,hideNotification} from './redux/notifications';
+import {showNotification,hideNotification,flashNotification} from './redux/notifications';
 
 
 function FuncApp(props) {
@@ -18,6 +18,7 @@ function FuncApp(props) {
 
           <button onClick={() => props.showNotification("Hi there from func!")}> show it</button>
           <button onClick={() => props.hideNotification()}> hide it </button>
+          <button onClick={() => props.flashNotification("Hi flash",10000)}> flash notification </button>
 
           {props.notifications.active && <p>{props.notifications.text}</p>}
         </header>
@@ -31,6 +32,6 @@ function mapStateToProps(state){
     notifications: state.notifications
   }
 }
-const mapDispatchToProps={showNotification,hideNotification}
+const mapDispatchToProps={showNotification,hideNotification,flashNotification}
 
 export default connect(mapStateToProps,mapDispatchToProps)(FuncApp);

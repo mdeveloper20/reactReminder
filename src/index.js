@@ -3,13 +3,13 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
-import {createStore,combineReducers} from 'redux'
+import {createStore,combineReducers,applyMiddleware} from 'redux'
 import notifications from './redux/notifications'
 import {Provider} from 'react-redux'
-import FuncApp from './FuncApp';
+import thunk from 'redux-thunk';
 
 const reducers=combineReducers({notifications})
-const store=createStore(reducers);
+const store=createStore(reducers,applyMiddleware(thunk));
 
 
 ReactDOM.render(<Provider store={store}><App/></Provider>, document.getElementById('root'));

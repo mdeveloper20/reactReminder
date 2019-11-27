@@ -3,23 +3,10 @@ import logo from './logo.svg';
 import './App.css';
 import { connect } from 'react-redux';
 import {showNotification,hideNotification} from './redux/notifications';
-import FuncApp from './FuncApp';
-
-class App extends React.Component{
 
 
-  componentDidMount(){
-    setTimeout(() => {
-      this.props.showNotification("Hi there!")
-    }, 2000);
-  
-    setTimeout(() => {
-      this.props.hideNotification();
-    }, 5000);
-  }
-  render() {
+function FuncApp(props) {
 
-  
   
     return (
       <div className="App">
@@ -28,13 +15,16 @@ class App extends React.Component{
           <p>
             Notification :
           </p>
-          {this.props.notifications.active && <p>{this.props.notifications.text}</p>}
+
+          <button onClick={() => props.showNotification("Hi there from func!")}> show it</button>
+          <button onClick={() => props.hideNotification()}> hide it </button>
+
+          {props.notifications.active && <p>{props.notifications.text}</p>}
         </header>
-        <FuncApp/>
       </div>
     );
   }
-}
+
 
 function mapStateToProps(state){
   return{
@@ -43,4 +33,4 @@ function mapStateToProps(state){
 }
 const mapDispatchToProps={showNotification,hideNotification}
 
-export default connect(mapStateToProps,mapDispatchToProps)(App);
+export default connect(mapStateToProps,mapDispatchToProps)(FuncApp);

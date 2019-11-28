@@ -2,21 +2,13 @@ import React from 'react';
 import logo from './logo.svg';
 import './App.css';
 import { connect } from 'react-redux';
-import {showNotification,hideNotification} from './redux/notifications';
+import {inc_async,decrease,increase} from './redux/counter';
 import FuncApp from './FuncApp';
 
 class App extends React.Component{
 
 
-  componentDidMount(){
-    setTimeout(() => {
-      this.props.showNotification("Hi there!")
-    }, 2000);
   
-    setTimeout(() => {
-      this.props.hideNotification();
-    }, 5000);
-  }
   render() {
 
   
@@ -25,12 +17,12 @@ class App extends React.Component{
       <div className="App">
         <header className="App-header">
           <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Notification :
-          </p>
-          {this.props.notifications.active && <p>{this.props.notifications.text}</p>}
         </header>
-        <FuncApp/>
+        <FuncApp
+          value={this.props.counter}
+          onIncrement={() => this.props.increase()}
+          onDecrement={() => this.props.decrease()}
+          onIncrementAsync={() => this.props.inc_async()} />
       </div>
     );
   }
@@ -38,9 +30,9 @@ class App extends React.Component{
 
 function mapStateToProps(state){
   return{
-    notifications: state.notifications
+    counter: state.value
   }
 }
-const mapDispatchToProps={showNotification,hideNotification}
+const mapDispatchToProps={increase,decrease,inc_async}
 
 export default connect(mapStateToProps,mapDispatchToProps)(App);

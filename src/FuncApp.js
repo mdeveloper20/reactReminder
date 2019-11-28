@@ -5,25 +5,25 @@ import { connect } from 'react-redux';
 import {showNotification,hideNotification} from './redux/notifications';
 
 
-function FuncApp(props) {
+const FuncApp = ({ value, onIncrement, onDecrement, onIncrementAsync }) =>
+  <div>
+    <button onClick={onIncrementAsync}>
+      Increment after 1 second
+    </button>
+    {' '}
+    <button onClick={onIncrement}>
+      Increment
+    </button>
+    {' '}
+    <button onClick={onDecrement}>
+      Decrement
+    </button>
+    <hr />
+    <div>
+      Clicked: {value} times
+    </div>
+  </div>
 
-  
-    return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Notification :
-          </p>
-
-          <button onClick={() => props.showNotification("Hi there from func!")}> show it</button>
-          <button onClick={() => props.hideNotification()}> hide it </button>
-
-          {props.notifications.active && <p>{props.notifications.text}</p>}
-        </header>
-      </div>
-    );
-  }
 
 
 function mapStateToProps(state){

@@ -3,14 +3,26 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
-import {createStore,combineReducers} from 'redux'
-import notifications from './redux/notifications'
+import {createStore,combineReducers,applyMiddleware} from 'redux'
+import counter from './redux/counter'
 import {Provider} from 'react-redux'
 import FuncApp from './FuncApp';
+import createSagaMiddleware from 'redux-saga'
+import rootSaga from './redux/sagas'
 
-const reducers=combineReducers({notifications})
-const store=createStore(reducers);
 
+
+
+
+
+// create the saga middleware
+const sagaMiddleware = createSagaMiddleware()
+// mount it on the Store
+const store = createStore(
+    counter,
+  applyMiddleware(sagaMiddleware)
+)
+sagaMiddleware.run(rootSaga)
 
 ReactDOM.render(<Provider store={store}><App/></Provider>, document.getElementById('root'));
 

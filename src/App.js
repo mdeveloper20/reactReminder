@@ -1,26 +1,43 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
+import CustomSelect from './CustomSelect';
 
+const styles={
+  app:{
+    backgroundColor:'rgba(0,0,0,0.1)',
+    justifyItems:'center',
+    alignItems:'center',
+    display:'grid',
+    height:'100vh',
+    fontFamily:'Arial',
+    color:'rgba(0,0,100,1)',
+    gridTemplateColumns:'1fr',
+    fontSize:25
+  },
+  select:{
+    width:'100%',
+    maxWidth:600
+  }
+}
+
+const options=[
+  {label:'React',value:'react'},
+  {label:'ReactNative',value:'react-native'},
+  {label:'JavaScript',value:'js'},
+  {label:'CSS',value:'css'},
+]
+
+function onChangeInput(value){
+  console.log(value);
+}
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div style={styles.app}>
+      <CustomSelect isMulti={true} style={styles.select} defaultValue={[options[3],options[2]]} onChange={onChangeInput} options={options} label="Choose a libary" />
     </div>
   );
+
+  
 }
 
 export default App;

@@ -48,14 +48,14 @@ class ProfileContainer extends Component {
 
 	render () {
 		return (
-			<Profile
+			!this.state.isLoading ? <Profile
 				title="Search profiles"
 				options={this.state.options}
 				onChangeInput={this.onChangeInput}
 				selected={this.state.selected}
 				avatar={this.state.avatar}
-				isLoading={this.state.isLoading}
-			/>
+
+			/> : 'Loading.....'
 		)
 	}
 }

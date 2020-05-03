@@ -1,6 +1,5 @@
 import Select from 'react-select'
 import React, { Component } from 'react'
-import withLoading from '../withLoading'
 
 const selectStyle = {
 	select: {
@@ -45,4 +44,4 @@ class Profile extends Component {
 	}
 }
 
-export default withLoading(Profile)
+export default Profile

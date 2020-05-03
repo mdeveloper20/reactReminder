@@ -1,10 +1,11 @@
 import React from 'react'
 import './App.css'
 import ProfileContainer from './ProfileContainer/ProfileContainer'
-
+import bg from './bg.jpg'
 const styles = {
 	app: {
-		backgroundColor: 'rgba(0,0,0,0.1)',
+		background: `url(${bg})`,
+		backgroundSize: 'cover',
 		justifyItems: 'center',
 		alignItems: 'center',
 		display: 'grid',

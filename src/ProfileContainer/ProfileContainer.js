@@ -1,5 +1,14 @@
 import React, { Component } from 'react'
 import Profile from './Profile'
+const selectStyle = {
+	backgroundColor: 'rgba(0,0,0,0.4)',
+	width: '70%',
+	height: '70%',
+	padding: 50,
+	borderRadius: 20,
+	color: 'white'
+
+}
 
 class ProfileContainer extends Component {
 	constructor (props) {
@@ -31,7 +40,9 @@ class ProfileContainer extends Component {
 			},
 			() => {
 				this.setState({
-					isLoading: true
+					isLoading: true,
+					name: item.label
+
 				})
 
 				fetch('https://reqres.in/api/users/' + item.value, { cache: 'reload' })
@@ -48,14 +59,18 @@ class ProfileContainer extends Component {
 
 	render () {
 		return (
-			!this.state.isLoading ? <Profile
-				title="Search profiles"
-				options={this.state.options}
-				onChangeInput={this.onChangeInput}
-				selected={this.state.selected}
-				avatar={this.state.avatar}
+			<div style={selectStyle}>
+				<h1>Search a User</h1>
 
-			/> : 'Loading.....'
+				{!this.state.isLoading ? <Profile
+					options={this.state.options}
+					onChangeInput={this.onChangeInput}
+					selected={this.state.selected}
+					avatar={this.state.avatar}
+					name={this.state.name}
+				/> : 'Loading.....'}
+
+			</div>
 		)
 	}
 }

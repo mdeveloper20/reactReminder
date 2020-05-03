@@ -1,5 +1,6 @@
 import Select from 'react-select'
 import React, { Component } from 'react'
+import withLoading from '../hocs/withLoading'
 
 const avatarStyle = {
 	backgroundColor: 'rgba(0,0,0,0.4)',
@@ -40,4 +41,4 @@ class Profile extends Component {
 	}
 }
 
-export default Profile
+export default withLoading(Profile)

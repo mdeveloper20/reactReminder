@@ -61,14 +61,14 @@ class ProfileContainer extends Component {
 		return (
 			<div style={selectStyle}>
 				<h1>Search a User</h1>
-
-				{!this.state.isLoading ? <Profile
+				<Profile
 					options={this.state.options}
 					onChangeInput={this.onChangeInput}
 					selected={this.state.selected}
 					avatar={this.state.avatar}
 					name={this.state.name}
-				/> : 'Loading.....'}
+					isLoading={this.state.isLoading}
+				/>
 
 			</div>
 		)

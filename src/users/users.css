@@ -1,0 +1,50 @@
+body{
+    background-color: crimson;
+    padding: 50px;
+}
+
+.container{
+    display: flex;
+    justify-content: space-around;
+}
+.users{
+    display: flex;
+    flex-direction: column;
+    background-color: rgba(0, 0, 0, 0.2);
+    border-radius: 20px;
+    
+}
+
+h1{
+    color:white;
+    font-family: 'Roboto';
+}
+.users > div{
+    width: 600px;
+    background-color: white;
+    padding: 20px;
+    border-radius: 20px;
+    box-shadow: 4px 4px rgba(0, 0, 0, 0.2) ;
+    font-family: 'Roboto';
+    font-size: 1.5rem;
+    display: flex;
+    margin:20px;
+    justify-content: space-between;
+    align-items: center;
+    
+}
+.users > div > div:first-child{
+    font-size: 4rem;
+    margin-left: 30px;
+
+}
+.users > div > div:last-child{
+    width: 300px;
+    display: flex;
+    justify-content: space-around;
+    font-size: 2rem;
+}
+img{
+    width: 100px;
+    
+}

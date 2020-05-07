@@ -1,5 +1,5 @@
 body{
-    background-color: crimson;
+    background: linear-gradient(90deg, rgba(140,0,255,1) 0%, rgba(201,10,127,1) 50%, rgba(140,0,255,1) 99%);
     padding: 50px;
 }
 
@@ -45,6 +45,6 @@ h1{
     font-size: 2rem;
 }
 img{
-    width: 100px;
+    width: 80px;
     
 }

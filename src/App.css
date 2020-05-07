@@ -1,22 +1,12 @@
 .App {
   text-align: center;
 }
-
-.App-logo {
-  height: 40vmin;
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+.title{
+  font-family: 'Roboto';
+  font-size: 3rem;
   color: white;
-}
-
-.App-link {
-  color: #09d3ac;
+  text-shadow: 1px 2px black;
+  margin-bottom: 30px;
+  margin-top: 30px;
+  text-transform: uppercase;
 }

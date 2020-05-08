@@ -6,7 +6,7 @@ import UsersPage from './users/UsersPage';
 function App() {
   return (
     <div className="App">
-      <div className='title'>React Draggable</div>
+      <div className='title'>React Beautiful DND</div>
       <UsersPage/>
     </div>
   );

@@ -1,44 +1,88 @@
 import React, { Component } from 'react';
 import './users.css';
+import { DragDropContext, Droppable, Draggable } from 'react-beautiful-dnd';
+import {users} from './Data';
 
-const users=[
-    {id:1, firstName: 'Alison', lastName:'Burger',avatar:'https://i.picsum.photos/id/328/200/300.jpg'},
-    {id:9, firstName: 'Michael', lastName:'Cooley',avatar:'https://i.picsum.photos/id/323/200/300.jpg'},
-    {id:5, firstName: 'Selena', lastName:'Brown',avatar:'https://i.picsum.photos/id/342/200/300.jpg'},
-    {id:7, firstName: 'Sara', lastName:'Brock',avatar:'https://i.picsum.photos/id/325/200/300.jpg'},
-]
-const topUsers=[
-    {id:8, firstName: 'Manha', lastName:'Marks',avatar:'https://i.picsum.photos/id/428/200/300.jpg'},
-    {id:3, firstName: 'Brook', lastName:'Jimenez',avatar:'https://i.picsum.photos/id/425/200/300.jpg'},
-]
 class UsersPage extends Component {
-    state = {  }
 
-    renderUsers=(item)=>{
-        return <div>
-            <div>{item.id}</div>
-            <div><img src={item.avatar} alt='avatar'/></div>
-            <div>
-                <div>{item.firstName}</div>
-                <div>{item.lastName}</div>
-            </div>
+    state={users: users}
 
-        </div>
+    onDragEnd = result => {
+        const { destination, source, reason } = result;
+        // Not a thing to do...
+        if (!destination || reason === 'CANCEL') {
+          return;
+        }
+    
+        if (
+          destination.droppableId === source.droppableId &&
+          destination.index === source.index
+        ) {
+          return;
+        }
+    
+        const users = Object.assign([], this.state.users);
+        const droppedUser = this.state.users[source.index];
+
+
+        users.splice(source.index, 1);
+        users.splice(destination.index, 0, droppedUser);
+        this.setState({
+          users
+        });
+      }
+   
+    renderUsers = (item, index) => {
+        return <Draggable
+            key={index}
+            draggableId={index+' '}
+            index={index}>
+
+            {(provided) => (
+                <div
+                    ref={provided.innerRef}
+                    {...provided.draggableProps}
+                    {...provided.dragHandleProps}
+                >
+                    <div className='item'>
+                        <div>{index+1}</div>
+                        <div><img src={item.avatar} alt='avatar' /></div>
+                        <div className='name'>
+                            <div>{item.firstName}</div>
+                            <div>{item.lastName}</div>
+                        </div>
+
+                    </div>
+                </div>
+            )}
+
+
+
+        </Draggable>
     }
-    render() { 
-        return ( <div className='container'>
-            <div className='users'>
-                <h1>Users</h1>
+    render() {
+        
+        return (<DragDropContext onDragEnd={this.onDragEnd}>
+            <div className='container'>
+                <div className='users'>
+                    <h1>Users</h1>
 
-                {users.map(this.renderUsers)}
-            </div>
-            <div className='top users'>
-                <h1>Top Users</h1>
+                    <Droppable droppableId="dp1">
+                        {(provided) => (
+                            <div ref={provided.innerRef} {...provided.droppableProps}>
+                                {this.state.users.map(this.renderUsers)}
+                                {provided.placeholder}
+                            </div>
+                        )}
 
-                {topUsers.map(this.renderUsers)}
+                    </Droppable>
+
+                    
+                </div>
+                
             </div>
-        </div> );
+        </DragDropContext>);
     }
 }
- 
+
 export default UsersPage;

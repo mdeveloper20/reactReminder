@@ -19,7 +19,7 @@ h1{
     color:white;
     font-family: 'Roboto';
 }
-.users > div{
+.users .item{
     width: 600px;
     background-color: white;
     padding: 20px;
@@ -33,12 +33,12 @@ h1{
     align-items: center;
     
 }
-.users > div > div:first-child{
+.users .item > div:first-child{
     font-size: 4rem;
     margin-left: 30px;
 
 }
-.users > div > div:last-child{
+.users .item .name{
     width: 300px;
     display: flex;
     justify-content: space-around;

@@ -1,43 +1,17 @@
-import React from 'react';
-import './App.css';
-import CustomSelect from './CustomSelect';
+import React from 'react'
+import './App.css'
+import UsersList from './UsersList/UsersList'
 
-const styles={
-  app:{
-    backgroundColor:'rgba(0,0,0,0.1)',
-    justifyItems:'center',
-    alignItems:'center',
-    display:'grid',
-    height:'100vh',
-    fontFamily:'Arial',
-    color:'rgba(0,0,100,1)',
-    gridTemplateColumns:'1fr',
-    fontSize:25
-  },
-  select:{
-    width:'100%',
-    maxWidth:600
-  }
-}
-
-const options=[
-  {label:'React',value:'react'},
-  {label:'ReactNative',value:'react-native'},
-  {label:'JavaScript',value:'js'},
-  {label:'CSS',value:'css'},
-]
-
-function onChangeInput(value){
-  console.log(value);
-}
-function App() {
+function App () {
   return (
-    <div style={styles.app}>
-      <CustomSelect isMulti={true} style={styles.select} defaultValue={[options[3],options[2]]} onChange={onChangeInput} options={options} label="Choose a libary" />
-    </div>
-  );
+    <div className='app'>
+      <h1>React <b>AutoComplete</b> From API</h1>
+      <h3>Using React-Select Package</h3>
 
-  
+      <UsersList/>
+
+    </div>
+  )
 }
 
-export default App;
+export default App

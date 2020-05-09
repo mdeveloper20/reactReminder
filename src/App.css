@@ -1,22 +1,33 @@
-.App {
-  text-align: center;
+body{
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  color: white;
+  align-items: center;
 }
 
-.App-logo {
-  height: 40vmin;
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.app{
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  font-family: 'Cabin', sans-serif;
 }
 
-.App-link {
-  color: #09d3ac;
+.app h1{
+  text-shadow: 1px 1px 4px black;
+  font-size: 3rem;
+  margin-bottom: 0;
+}
+
+.app h1 b{
+  color: rgb(252, 212, 33);
+
+}
+.app h3{
+  color:rgb(5, 66, 62);
+  font-size: 1.5rem;
+  margin-top: 5px;
+  margin-bottom: 50px;
+  text-shadow: 1px 1px 1px rgb(87, 177, 135);
+
 }

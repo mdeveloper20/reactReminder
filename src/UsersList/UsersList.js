@@ -1,8 +1,9 @@
 import React, { PureComponent } from 'react'
-import AsyncSelect from 'react-select/async'
 import './users.css'
+import AsyncSelect from 'react-select/async'
 import makeAnimated from 'react-select/animated'
-const animatedComponents = makeAnimated()
+
+const animatedComponent = makeAnimated()
 
 class UsersList extends PureComponent {
     state = { selectedUsers: [] }
@@ -13,14 +14,15 @@ class UsersList extends PureComponent {
       })
     }
 
-    renderEveryUser= user => {
-      return <img src={user.avatar} alt='user avatar'/>
+    loadOptions=async (inputText, callback) => {
+      const response = await fetch(`http://localhost:3001/api/users?first_name_like=${inputText}`)
+      const json = await response.json()
+
+      callback(json.map(i => ({ label: i.first_name, value: i.id, avatar: i.avatar })))
     }
 
-    loadOptions= async (inputValue, callback) => {
-      const response = await fetch(`http://localhost:3001/api/users?first_name_like=${inputValue}`)
-      const json = await response.json()
-      callback(json.map(i => ({ label: i.first_name, value: i.id, avatar: i.avatar })))
+    renderEveryUser= user => {
+      return <img src={user.avatar} alt='user avatar'/>
     }
 
     render () {
@@ -32,25 +34,25 @@ class UsersList extends PureComponent {
 
         <AsyncSelect
           isMulti
-          components={animatedComponents}
-
+          components={animatedComponent}
           value={this.state.selectedUsers}
-          loadOptions={this.loadOptions}
           onChange={this.onChange}
           placeholder={'type something...'}
-          theme={(theme) => ({
+          loadOptions={this.loadOptions}
+          theme={theme => ({
             ...theme,
             borderRadius: 0,
             colors: {
               ...theme.colors,
-              text: 'orangered',
               primary25: 'green',
               primary: 'black',
               neutral0: '#c8c8c8',
               neutral90: 'white'
             }
           })}
+
         />
+
       </div>)
     }
 }

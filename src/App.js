@@ -1,14 +1,12 @@
 import React from 'react'
 import './App.css'
-import UsersList from './UsersList/UsersList'
+import Register from './Register/Register'
 
 function App () {
   return (
     <div className='app'>
-      <h1>React <b>AutoComplete</b> From API</h1>
-      <h3>Using React-Select Package</h3>
-
-      <UsersList/>
+      <Register/>
+      <h3>React Select <b>Creatable</b> Example</h3>
 
     </div>
   )

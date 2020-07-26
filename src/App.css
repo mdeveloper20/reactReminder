@@ -1,9 +1,11 @@
 body{
-  height: 100vh;
   display: flex;
   justify-content: center;
   color: white;
   align-items: center;
+  background-image: linear-gradient(to top, #423842 0%, #441942 100%);
+  background-repeat: no-repeat;
+  background-attachment: fixed;
 }
 
 .app{

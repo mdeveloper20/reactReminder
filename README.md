@@ -1,3 +1,3 @@
-This is a sample project for react-select library with async connect:
-
-![project-screenshot](https://i.imgur.com/VnFQzIm.png)
+This is a sample project to build custom dropdowns in react. It will cover:
+-How to add a new option to the select dropdown...
+-How to build a tag input in react...

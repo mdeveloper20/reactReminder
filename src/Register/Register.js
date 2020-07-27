@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
-import Creatable from 'react-select/creatable'
 import './register.css'
+import Creatable from 'react-select/creatable'
 
 const roles = [
   { label: 'admin', value: 1 },
@@ -23,51 +23,43 @@ const Register = props => {
   const [family, setFamily] = useState('')
   const [age, setAge] = useState('')
   const [roleValue, setRoleValue] = useState('')
-  const [tagValue, setTagValue] = useState('')
   const [tagInputValue, setTagInputValue] = useState('')
+  const [tagValue, setTagValue] = useState('')
 
-  const handleChange = (field, newValue) => {
+  const handleChange = (field, value) => {
     switch (field) {
-      case 'tags':
-        setTagValue(newValue)
-        break
       case 'roles':
-        setRoleValue(newValue)
+        setRoleValue(value)
         break
+
       default:
         break
     }
   }
 
-  const handleKeyDown = (event) => {
+  const handleKeyDown = event => {
     if (!tagInputValue) return
     switch (event.key) {
       case 'Enter':
       case 'Tab':
         setTagValue([...tagValue, createOption(tagInputValue)])
-
         setTagInputValue('')
 
         event.preventDefault()
+        break
+
+      default:
+        break
     }
   }
 
-  const createOption = (label) => ({
+  const createOption = label => ({
     label,
     value: label
   })
 
-  const handleInputChange = (inputValue) => {
-    setTagInputValue(inputValue)
-  }
-
-  const onSubmit = () => {
-    setTagValue([])
-    setRoleValue([])
-    setName('')
-    setFamily('')
-    setAge('')
-    setTagInputValue('')
+  const handleInputChange = (value) => {
+    setTagInputValue(value)
   }
   return (
     <div className='container'>
@@ -85,6 +77,7 @@ const Register = props => {
           <label>Age</label>
           <input type='text' value={age} onChange={(event) => setAge(event.target.value)} />
         </div>
+
         <div className='input'>
           <label>Role(s)</label>
           <Creatable
@@ -96,26 +89,27 @@ const Register = props => {
             styles={customStyles}
           />
         </div>
+
         <div className='input'>
           <label>Tag(s)</label>
           <Creatable
-            components={{
-              DropdownIndicator: null
-            }}
-            inputValue={tagInputValue}
             isClearable
             isMulti
+            components={
+              { DropdownIndicator: null }
+            }
+            inputValue={tagInputValue}
             menuIsOpen={false}
             onChange={(value) => handleChange('tags', value)}
-            placeholder="Type something and press enter..."
+            placeholder='Type something and press enter...'
             onKeyDown={handleKeyDown}
             onInputChange={handleInputChange}
             value={tagValue}
-
           />
         </div>
+
         <div className='buttons'>
-          <button onClick={onSubmit}>Submit</button>
+          <button>Submit</button>
         </div>
       </div>
     </div>

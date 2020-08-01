@@ -25,3 +25,50 @@ body{
   color: rgb(252, 212, 33);
 
 }
+.arrow-up {
+  width: 0; 
+  height: 0; 
+  border-left: 10px solid transparent;
+  border-right: 10px solid transparent;
+  border-bottom: 10px solid rgb(151, 15, 110);
+}
+
+.arrow-down {
+  width: 0; 
+  height: 0; 
+  border-left: 10px solid transparent;
+  border-right: 10px solid transparent;
+  
+  border-top: 10px solid rgb(151, 15, 110);
+}
+
+.box{
+  background-color: white;
+  color: black;
+  width: 300px;
+  margin-top: 200px;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+.box .title{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding:0 10px;
+  cursor: pointer;
+}
+
+.box .description{
+  color:gray;
+  display: none;
+  border-top: 1px dotted black;
+  padding-top: 10px;
+}
+.box .description-active{
+  display: block;
+}
+
+.box .green-active{
+  background-color: greenyellow;
+}

@@ -68,7 +68,3 @@ body{
 .box .description-active{
   display: block;
 }
-
-.box .green-active{
-  background-color: greenyellow;
-}

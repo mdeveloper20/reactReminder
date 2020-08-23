@@ -68,3 +68,12 @@ body{
 .box .description-active{
   display: block;
 }
+
+.tooltip{
+  background-color: indianred;
+}
+
+.tooltip-hidden{
+  visibility: hidden;
+  pointer-events: none;
+}

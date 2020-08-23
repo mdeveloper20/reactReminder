@@ -3,7 +3,11 @@ body{
   justify-content: center;
   color: white;
   align-items: center;
-  background-image: linear-gradient(to top, #423842 0%, #441942 100%);
+
+  background: #43cea2; /* fallback for old browsers */
+  background: -webkit-linear-gradient(to right, #43cea2, #185a9d); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, #43cea2, #185a9d); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
   background-repeat: no-repeat;
   background-attachment: fixed;
 }
@@ -42,38 +46,35 @@ body{
   border-top: 10px solid rgb(151, 15, 110);
 }
 
-.box{
+.area{
+  padding:100px;
+  background-color: darkviolet;
+  border-radius: 20px;
+  margin-top: 100px;
+}
+.ref-button{
+  width: 200px;
+  height:45px;
   background-color: white;
-  color: black;
-  width: 300px;
-  margin-top: 200px;
-  padding: 10px;
-  border-radius: 5px;
+  border: 2px dotted #423842;
 }
 
-.box .title{
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding:0 10px;
-  cursor: pointer;
+.ref-button:hover{
+  background-color: deeppink;
 }
 
-.box .description{
-  color:gray;
-  display: none;
-  border-top: 1px dotted black;
-  padding-top: 10px;
-}
-.box .description-active{
-  display: block;
-}
-
-.tooltip{
-  background-color: indianred;
+.ref-button2{
+  width: 150px;
+  height:45px;
+  background-color:cadetblue;
+  border: 1px dotted #423842;
+  box-shadow: 1px 4px 1px #ccc;
+  margin:4px;
 }
 
-.tooltip-hidden{
-  visibility: hidden;
-  pointer-events: none;
+.ref-button3{
+  width: 100px;
+  height:45px;
+  background-color:darkorange;
+  border: 1px dotted #423842;
 }

@@ -1,29 +1,32 @@
 import React, { useState } from 'react'
-import classNames from 'classnames'
 import './App.css'
 
+import Tippy from '@tippyjs/react'
+import 'tippy.js/dist/tippy.css' // optional
+import 'tippy.js/themes/light.css'
+import 'tippy.js/animations/perspective.css'
+
 function App () {
-  const [isOpen, setIsOpen] = useState(false)
-
-  const onClickHeader = () => {
-    setIsOpen(!isOpen)
-  }
-
   return (
     <div className='app'>
-      <h3>React Popper JS</h3>
+      <h1>Tippy JS React Tutorial</h1>
 
-      <div className='box'>
-        <p onClick={onClickHeader} className="title">Click me! <i className="arrow-up"></i></p>
-
-        <div className={classNames('description', { 'description-active': isOpen })}>
-        Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
-        </div>
+      <div className='area'>
+        <Tippy placement={'bottom'} animation='perspective' theme={'light'} interactive={true} content={
+          <Tippy offset={[0, 20]} placement={'bottom'} animation='perspective' theme={'light'} interactive={true} content={<div>
+            <h1>Hello this is my first tooltip using Tippy</h1>
+          </div>}>
+            <button className='ref-button2'>
+            Click on me!
+            </button>
+          </Tippy>
+        }>
+          <button className='ref-button'>
+          Click on me!
+          </button>
+        </Tippy>
       </div>
 
-      <div id="tooltip" className={classNames({ 'tooltip-hidden': !isOpen })} >
-        This is an example tooltip
-      </div>
     </div>
   )
 }

@@ -1,24 +1,10 @@
-import React, { useState, useRef } from 'react'
+import React, { useState } from 'react'
 import classNames from 'classnames'
 import './App.css'
-import { usePopper } from 'react-popper'
 
 function App () {
   const [isOpen, setIsOpen] = useState(false)
-  const boxRef = useRef()
-  const tooltipRef = useRef()
 
-  const { styles, attributes } = usePopper(boxRef.current, tooltipRef.current, {
-    modifiers: [
-      {
-        name: 'offset',
-        options: {
-          offset: [0, 10]
-        }
-      }
-    ],
-    placement: 'bottom-start'
-  })
   const onClickHeader = () => {
     setIsOpen(!isOpen)
   }
@@ -27,7 +13,7 @@ function App () {
     <div className='app'>
       <h3>React Popper JS</h3>
 
-      <div ref={boxRef} className='box'>
+      <div className='box'>
         <p onClick={onClickHeader} className="title">Click me! <i className="arrow-up"></i></p>
 
         <div className={classNames('description', { 'description-active': isOpen })}>
@@ -35,7 +21,7 @@ function App () {
         </div>
       </div>
 
-      <div id="tooltip" className={classNames({ 'tooltip-hidden': !isOpen })} ref={tooltipRef} style={styles.popper} {...attributes.popper}>
+      <div id="tooltip" className={classNames({ 'tooltip-hidden': !isOpen })} >
         This is an example tooltip
       </div>
     </div>

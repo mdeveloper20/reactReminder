@@ -57,10 +57,11 @@ body{
   height:45px;
   background-color: white;
   border: 2px dotted #423842;
+  margin-top: 100px;
 }
 
 .ref-button:hover{
-  background-color: deeppink;
+  background-color: #ccc;
 }
 
 .ref-button2{

@@ -1,43 +1,42 @@
-import React, { useState, useRef } from 'react'
-import classNames from 'classnames'
+import React, { useState } from 'react'
 import './App.css'
-import { usePopper } from 'react-popper'
+import CustomSelect from './CustomSelect/CustomSelect'
+const languages = [
+  {
+    id: 0,
+    label: 'JavaScript',
+    logo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/6/6a/JavaScript-logo.png/768px-JavaScript-logo.png'
+  },
+  {
+    id: 1,
+    label: 'PHP asdasd',
+    logo: 'https://www.php.net//images/logos/new-php-logo.svg'
+  },
+  {
+    id: 2,
+    label: 'Python',
+    logo: 'https://logodownload.org/wp-content/uploads/2019/10/python-logo-2.png'
+  },
+  {
+    id: 3,
+    label: 'GO',
+    logo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/0/05/Go_Logo_Blue.svg/1200px-Go_Logo_Blue.svg.png'
+  },
+  {
+    id: 4,
+    label: 'C#',
+    logo: 'https://upload.wikimedia.org/wikipedia/commons/7/7a/C_Sharp_logo.svg'
+  }
+]
 
 function App () {
-  const [isOpen, setIsOpen] = useState(false)
-  const boxRef = useRef()
-  const tooltipRef = useRef()
-
-  const { styles, attributes } = usePopper(boxRef.current, tooltipRef.current, {
-    modifiers: [
-      {
-        name: 'offset',
-        options: {
-          offset: [0, 10]
-        }
-      }
-    ],
-    placement: 'bottom-start'
-  })
-  const onClickHeader = () => {
-    setIsOpen(!isOpen)
-  }
+  const [selectedLanguages, setSelectedLanguages] = useState([])
 
   return (
+
     <div className='app'>
-      <h3>React Popper JS</h3>
-
-      <div ref={boxRef} className='box'>
-        <p onClick={onClickHeader} className="title">Click me! <i className="arrow-up"></i></p>
-
-        <div className={classNames('description', { 'description-active': isOpen })}>
-        Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
-        </div>
-      </div>
-
-      <div id="tooltip" className={classNames({ 'tooltip-hidden': !isOpen })} ref={tooltipRef} style={styles.popper} {...attributes.popper}>
-        This is an example tooltip
-      </div>
+      <h3>React Custom Dropdown</h3>
+      <CustomSelect value={selectedLanguages} onChange={(v) => setSelectedLanguages(v)} options={languages}/>
     </div>
   )
 }

@@ -9,7 +9,7 @@ const languages = [
   },
   {
     id: 1,
-    label: 'PHP asdasd',
+    label: 'PHP',
     logo: 'https://www.php.net//images/logos/new-php-logo.svg'
   },
   {

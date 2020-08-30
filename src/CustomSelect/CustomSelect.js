@@ -20,7 +20,7 @@ export default function CustomSelect ({ value, title, options, onChange }) {
     <div className="dropdown-input">
       <span onClick={() => setIsActive(!isActive)} className='arrow-down'></span>
       <div className='dropdown-values'>
-        {value.length ? value.map(v => <div key={v} className='dropdown-value'> {options[v].label} <span className='dropdown-remove' onClick={() => removeValue(v)}>x</span></div>) : <div onClick={() => setIsActive(!isActive)} className='dropdown-placeholder'>Select an item</div> }
+        {value.length ? value.map(v => <div key={v} className='dropdown-value'> {options[v].label} <span className='dropdown-remove' onClick={() => removeValue(v)}>X</span></div>) : <div onClick={() => setIsActive(!isActive)} className='dropdown-placeholder'>Select an item</div> }
       </div>
     </div>
     <div className={classnames('dropdown-options', { 'dropdown-active': isActive })}>

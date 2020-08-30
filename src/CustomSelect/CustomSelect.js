@@ -5,9 +5,6 @@ export default function CustomSelect ({ value, title, options, onChange }) {
   const [isActive, setIsActive] = useState(false)
 
   const applyChange = (newItemId) => {
-    if (value.findIndex(i => i.index === newItemId) !== -1) {
-      return
-    }
     onChange && onChange([...value, newItemId])
   }
 

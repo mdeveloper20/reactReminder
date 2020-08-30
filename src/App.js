@@ -36,7 +36,8 @@ function App () {
 
     <div className='app'>
       <h3>React Custom Dropdown</h3>
-      <CustomSelect value={selectedLanguages} onChange={(v) => setSelectedLanguages(v)} options={languages}/>
+      <CustomSelect title="Select your skills:" value={selectedLanguages} onChange={(v) => setSelectedLanguages(v)} options={languages}/>
+
     </div>
   )
 }

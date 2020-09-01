@@ -1,31 +1,47 @@
 import React, { useState } from 'react'
 import './App.css'
-import AnimatedNumber from 'react-animated-number'
+import Formsy, { addValidationRule } from 'formsy-react'
+import MyInput from './Inputs/MyInput'
 
+const errors = {
+  isEmail: 'You have to type a valid email',
+  maxLength: 'You cannot type more than 25 characters',
+  minLength: 'You must type more than 6 characters',
+  isAlpha: 'You can only type letters',
+  equalsField: 'Password is not match',
+  isStrong: 'Your password is not strong'
+}
 function App () {
-  const [counter, setCounter] = useState(0)
+  const [canSubmit, setCanSubmit] = useState(false)
+  addValidationRule('isStrong', function (values, value) {
+    return ['$', '%'].some(v => value && value.indexOf(v) !== -1)
+  })
+
+  const disableButton = () => {
+    setCanSubmit(false)
+  }
+
+  const enableButton = () => {
+    setCanSubmit(true)
+  }
+
+  const submit = (model) => {
+    console.log('model', model)
+  }
 
   return (
     <div className='app'>
-      <h1>React Animated Number Tutorial</h1>
+      <h1>Form validation in React Js</h1>
 
-      <AnimatedNumber
-        value={counter}
-        style={
-          {
-            fontSize: 200
-          }
-        }
-        formatValue={n => n.toFixed(0)}
-        frameStyle={percentage => percentage > 20 && percentage < 80 ? { opacity: 0.5 } : {}}
-      />
-      <div className='likes'>Likes for this video</div>
+      <Formsy className='form' onValidSubmit={submit} onValid={enableButton} onInvalid={disableButton}>
+        <MyInput label="Email address" type="text" name="email" validations="maxLength:25,isEmail" validationErrors={errors} placeholder="type your email address..." required />
+        <MyInput label="Password" type="password" name="password" validations="minLength:6,isStrong" validationErrors={errors} placeholder="type your password..." required />
+        <MyInput label="Password repeat" type="password" name="passwordrepeat" validations="equalsField:password" validationErrors={errors} placeholder="type your password..." required/>
 
-      <div className='area'>
-        <button onClick={() => setCounter(counter - 50)} className='button' >Decrease</button>
-        <button onClick={() => setCounter(counter + 50)} className='button green'>Increase</button>
-      </div>
-
+        <button type="submit" disabled={!canSubmit}>
+          Register
+        </button>
+      </Formsy>
     </div>
   )
 }

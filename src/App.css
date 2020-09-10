@@ -11,7 +11,9 @@ body{
   background-repeat: no-repeat;
   background-attachment: fixed;
 }
-
+h1{
+  margin:0
+}
 .app{
   display: flex;
   flex-direction: column;
@@ -30,22 +32,9 @@ body{
   color: rgb(252, 212, 33);
 }
 
-.form{
-  background-color: #18619d;
-  padding:20px;
-  border-radius: 8px;
-}
-.input-row{
-  display: flex;
-  flex-direction: column;
-  margin-bottom: 20px;
-}
-.input-row span{
-  color:rgb(255, 139, 110)
-}
 input{
-  width: 300px;
-  height: 36px;
+  width: 400px;
+  height: 30px;
   padding:10px;
   border-radius: 8px;
   border: none;
@@ -55,5 +44,35 @@ input{
 }
 button{
   width: 100px;
-  height:46px
+  height:40px;
+  background-color: #ffffff;
+  border:none;
+  box-shadow: 2px 2px 1px #18619d;
+  border-radius: 10px;
+  margin-top: 10px;
+  margin-bottom: 20px;
+  
+}
+video{
+  width: 200px;
+  height: 100%;
+}
+.form{
+  display: flex;
+  flex-direction: column;
+  margin-top: 50px;
+}
+.videos{
+  display: none;
+  justify-content: space-between;
+  
+}
+.active{
+  display: flex;
+}
+
+.videos div{
+  display: flex;
+  flex-direction: column-reverse;
+  align-items: center;
 }

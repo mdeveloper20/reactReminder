@@ -1,11 +1,11 @@
 const config = {
-  apiKey: 'AIzaSyDnsmeds55TuGRByXFrkKc0bqc1Xg3sLTY',
-  authDomain: 'videochat-ea847.firebaseapp.com',
-  databaseURL: 'https://videochat-ea847.firebaseio.com',
-  projectId: 'videochat-ea847',
-  storageBucket: 'videochat-ea847.appspot.com',
-  messagingSenderId: '738924721944',
-  appId: '1:738924721944:web:84099f1f3900b9d248906d'
+  apiKey: 'AIzaSyCXLONasOVbJ_LCqWP1r4r1AifDYlBF-Wg',
+  authDomain: 'loginproject-8f9ff.firebaseapp.com',
+  databaseURL: 'https://loginproject-8f9ff.firebaseio.com',
+  projectId: 'loginproject-8f9ff',
+  storageBucket: 'loginproject-8f9ff.appspot.com',
+  messagingSenderId: '742539249670',
+  appId: '1:742539249670:web:dd141ceca0523d360f5b87'
 }
 
 export default config

@@ -1,8 +1,8 @@
 import React from 'react'
-import firebase from 'firebase/app'
-import config from './config'
 import Login from './Login'
 import 'firebase/auth'
+import config from './config'
+import firebase from 'firebase/app'
 class VideoChatContainer extends React.Component {
   constructor (props) {
     super(props)
@@ -16,20 +16,11 @@ class VideoChatContainer extends React.Component {
       firebase.initializeApp(config)
 
       firebase.auth().onAuthStateChanged(user => {
-        console.log('user', user)
         this.setState({
           user,
           isLoading: false
         })
       })
-    }
-
-    shouldComponentUpdate (nextProps, nextState) {
-      if (this.state.database !== nextState.database) {
-        return false
-      }
-
-      return true
     }
 
     doLogin=async (email, password) => {
@@ -38,43 +29,48 @@ class VideoChatContainer extends React.Component {
         await firebase.auth().signInWithEmailAndPassword(email, password)
       } catch (error) {
         const errorCode = error.code
-
         if (errorCode === 'auth/user-not-found') {
-          //  register user
+          // register the user
           this.doRegister(email, password)
         } else {
           const errorMessage = error.message
           this.setState({
             errorMessage
           })
-          console.error(error.code)
         }
       } finally {
-        this.setState({ isLoading: false })
+        this.setState({
+          isLoading: false
+        })
       }
     }
 
     doRegister=async (email, password) => {
       try {
         this.setState({ isLoading: true })
-
         await firebase.auth().createUserWithEmailAndPassword(email, password)
       } catch (error) {
-        console.error(error.code)
+        const errorMessage = error.message
+        this.setState({
+          errorMessage
+        })
       } finally {
-        this.setState({ isLoading: false })
+        this.setState({
+          isLoading: false
+        })
       }
     }
 
     doLogout=async () => {
       try {
         this.setState({ isLoading: true })
-
         await firebase.auth().signOut()
       } catch (error) {
-        console.error(error.code)
+        console.error(error)
       } finally {
-        this.setState({ isLoading: false })
+        this.setState({
+          isLoading: false
+        })
       }
     }
 

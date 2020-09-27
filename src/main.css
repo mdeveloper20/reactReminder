@@ -10778,4 +10778,17 @@ button.close {
     display: inline-flex !important;
   }
 }
+
+.header-bg {
+  background-image: url("./assets/banner1.jpg");
+  background-size: cover;
+}
+
+.text-shadow {
+  text-shadow: 2px 2px #000000;
+}
+
+.dark-transparent {
+  background-color: rgba(0, 0, 0, 0.4);
+}
 /*# sourceMappingURL=main.css.map */

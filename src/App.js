@@ -1,10 +1,14 @@
 import React from 'react'
 import './main.css'
-import AppContainer from './AppContainer'
+import Navbar from './components/Navbar'
+import Header from './components/Header'
 function App () {
   return (
 
-    <AppContainer/>
+    <div className="container">
+      <Navbar/>
+      <Header/>
+    </div>
 
   )
 }

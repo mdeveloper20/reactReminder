@@ -5,8 +5,8 @@ body{
   align-items: center;
 
   background: #43cea2; /* fallback for old browsers */
-  background: -webkit-linear-gradient(to right, #43cea2, #185a9d); /* Chrome 10-25, Safari 5.1-6 */
-  background: linear-gradient(to right, #43cea2, #185a9d); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  background: -webkit-linear-gradient(to right, #100055, #185a9d); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, #100055, #185a9d); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 
   background-repeat: no-repeat;
   background-attachment: fixed;
@@ -34,13 +34,14 @@ h1{
 
 input{
   width: 400px;
-  height: 30px;
+  height: 20px;
   padding:10px;
   border-radius: 8px;
   border: none;
   box-shadow: 1px 1px 0.8px #0c1d2e;
   margin-top: 10px;
   margin-bottom: 4px;
+  margin-right: 10px;
 }
 button{
   width: 100px;

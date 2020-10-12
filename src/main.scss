@@ -1,5 +1,19 @@
 @import '../node_modules/bootstrap/scss/bootstrap.scss';
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;600&display=swap');
 
+body{
+    font-family: 'Oswald', sans-serif;
+}
+
+.orders-count{
+    position: absolute;
+    bottom: -2px;
+    background-color: rgb(197, 38, 38);
+    border-radius: 55px;
+    padding: 0 6px;
+    border:1px solid white;
+    font-size: 13px;
+}
 .header-bg{
     background-image: url('./assets/banner1.jpg');
     background-size: cover;
@@ -10,4 +24,46 @@
 }
 .dark-transparent {
     background-color: rgba(0, 0, 0, 0.4);
- }
+}
+
+.top-deals{
+    .item{
+        width: calc(100% - 16px);
+        overflow: hidden;
+        margin: 8px;
+
+        img{
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+    }
+}
+
+.delivery{
+    h2{
+        font-weight: 700;
+    }
+    h4{
+        font-weight: 500;
+    }
+    img{
+        width: 60px;
+    }
+    .truck{
+    }
+}
+
+.categories{
+    .item{
+        width: 100%;
+        img{
+            width: 100%;
+            height: 800px;
+            object-fit: cover;
+        }
+
+    }
+    
+}

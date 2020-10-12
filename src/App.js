@@ -1,14 +1,18 @@
 import React from 'react'
+import AppRouter from './containers/AppRouter'
 import './main.css'
-import Navbar from './components/Navbar'
-import Header from './components/Header'
+import {
+  RecoilRoot
+} from 'recoil'
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 function App () {
   return (
-
-    <div className="container">
-      <Navbar/>
-      <Header/>
-    </div>
+    <RecoilRoot>
+      <AppRouter/>
+      <ToastContainer />
+    </RecoilRoot>
 
   )
 }

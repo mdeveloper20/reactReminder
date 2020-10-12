@@ -1,6 +1,4 @@
 import React from 'react'
-import logo from '../assets/logo.svg'
-import banner1 from '../assets/banner1.jpg'
 
 export default function Header (props) {
   return (

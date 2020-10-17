@@ -40,39 +40,27 @@ input{
   border: none;
   box-shadow: 1px 1px 0.8px #0c1d2e;
   margin-top: 10px;
-  margin-bottom: 4px;
+  margin-bottom: 14px;
 }
-button{
-  width: 100px;
-  height:40px;
-  background-color: #ffffff;
-  border:none;
-  box-shadow: 2px 2px 1px #18619d;
-  border-radius: 10px;
-  margin-top: 10px;
-  margin-bottom: 20px;
-  
-}
-video{
-  width: 200px;
-  height: 100%;
-}
-.form{
+form{
   display: flex;
   flex-direction: column;
-  margin-top: 50px;
 }
-.videos{
-  display: none;
-  justify-content: space-between;
-  
+h1{
+  margin-bottom: 20px;
 }
-.active{
-  display: flex;
+button{
+  height: 46px;
+  margin-top: 14px;
+  background-color: rgb(218, 255, 6);
+  border-radius: 8px;
+  border:1px solid rgb(8, 68, 6);
+  box-shadow: 1px 2px 3px #252525aa;
+  font-size: 15px;
 }
-
-.videos div{
-  display: flex;
-  flex-direction: column-reverse;
-  align-items: center;
+.error{
+  font-size: 12px;
+  color: rgb(122, 12, 22);
+  margin-top:-10px;
+  margin-bottom: 10px;
 }

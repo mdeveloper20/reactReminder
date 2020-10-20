@@ -32,15 +32,17 @@ h1{
   color: rgb(252, 212, 33);
 }
 
-input{
-  width: 400px;
+.input{
+  width: 350px;
   height: 30px;
-  padding:10px;
   border-radius: 8px;
   border: none;
-  box-shadow: 1px 1px 0.8px #0c1d2e;
   margin-top: 10px;
   margin-bottom: 14px;
+}
+
+input{
+  padding: 5px 0;
 }
 form{
   display: flex;
@@ -61,6 +63,5 @@ button{
 .error{
   font-size: 12px;
   color: rgb(122, 12, 22);
-  margin-top:-10px;
   margin-bottom: 10px;
 }

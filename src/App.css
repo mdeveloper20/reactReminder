@@ -1,67 +1,39 @@
-body{
-  display: flex;
-  justify-content: center;
-  color: white;
-  align-items: center;
-
-  background: #43cea2; /* fallback for old browsers */
-  background: -webkit-linear-gradient(to right, #43cea2, #185a9d); /* Chrome 10-25, Safari 5.1-6 */
-  background: linear-gradient(to right, #43cea2, #185a9d); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-
-  background-repeat: no-repeat;
-  background-attachment: fixed;
-}
-h1{
-  margin:0
-}
 .app{
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  font-family: 'Cabin', sans-serif;
-  padding-top: 300px;
+  width: 960px;
 }
-
-.app h3{
-  text-shadow: 1px 1px 4px black;
-  font-size: 1.5rem;
-  margin-bottom: 0;
-}
-
-.app h3 b{
-  color: rgb(252, 212, 33);
-}
-
-.input{
-  width: 350px;
-  height: 30px;
-  border-radius: 8px;
-  border: none;
-  margin-top: 10px;
-  margin-bottom: 14px;
-}
-
-input{
-  padding: 5px 0;
-}
-form{
+.sidebar{
+  width: 250px;
   display: flex;
-  flex-direction: column;
 }
-h1{
-  margin-bottom: 20px;
+.home{
+  width: calc(100% - 250px);
+  display: flex;
+  justify-content:center;
+  align-items: center;
 }
-button{
-  height: 46px;
-  margin-top: 14px;
-  background-color: rgb(218, 255, 6);
+
+.sidebar li{
+  box-shadow: 0px 0px 10px rgb(236, 235, 148);
   border-radius: 8px;
-  border:1px solid rgb(8, 68, 6);
-  box-shadow: 1px 2px 3px #252525aa;
-  font-size: 15px;
+  background-color: white;
+  height: 100px;
+  width: 200px;
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 20px 0;
+  color:black
 }
-.error{
-  font-size: 12px;
-  color: rgb(122, 12, 22);
-  margin-bottom: 10px;
+
+.shape{
+  width: 200px;
+  height: 200px;
+  background-color: white;
+  color: brown;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
 }

@@ -1,11 +1,11 @@
-import React from 'react'
+import React, { useState } from 'react'
 import './App.css'
-import { RegisterForm } from './RegisterForm'
+
 
 function App () {
   return (
     <div className='app'>
-      <RegisterForm/>
+
     </div>
   )
 }

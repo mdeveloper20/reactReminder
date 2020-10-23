@@ -5,6 +5,7 @@
 .sidebar{
   width: 250px;
   display: flex;
+  flex-direction: column;
 }
 .home{
   width: calc(100% - 250px);
@@ -13,9 +14,10 @@
   align-items: center;
 }
 
-.sidebar li{
+.sidebar button{
   box-shadow: 0px 0px 10px rgb(236, 235, 148);
   border-radius: 8px;
+  border:none;
   background-color: white;
   height: 100px;
   width: 200px;
@@ -24,16 +26,18 @@
   justify-content: center;
   align-items: center;
   margin: 20px 0;
-  color:black
+  color:black;
+  cursor: pointer;
 }
 
 .shape{
   width: 200px;
   height: 200px;
-  background-color: white;
-  color: brown;
+  background-color: rgb(177, 31, 31);
+  color: white;
   display: flex;
   align-items: center;
   justify-content: center;
   padding: 20px;
+  border-radius: 8px;
 }

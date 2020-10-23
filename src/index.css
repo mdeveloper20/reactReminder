@@ -4,6 +4,9 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+
+
+  
   background-image: linear-gradient(120deg, #f6d365 0%, #fda085 100%);
   display: flex;
   justify-content: center;

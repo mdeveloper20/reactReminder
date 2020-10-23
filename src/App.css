@@ -41,3 +41,15 @@
   padding: 20px;
   border-radius: 8px;
 }
+
+.shape2{
+  width: 200px;
+  height: 200px;
+  background-color: rgb(102, 177, 31);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  border-radius: 8px;
+}

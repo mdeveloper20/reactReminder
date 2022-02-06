@@ -1,43 +1,51 @@
-import React from 'react';
-import './App.css';
-import CustomSelect from './CustomSelect';
+import React, { useEffect, useState } from 'react'
+import './App.css'
+import { authorsMockData } from './MockData'
 
-const styles={
-  app:{
-    backgroundColor:'rgba(0,0,0,0.1)',
-    justifyItems:'center',
-    alignItems:'center',
-    display:'grid',
-    height:'100vh',
-    fontFamily:'Arial',
-    color:'rgba(0,0,100,1)',
-    gridTemplateColumns:'1fr',
-    fontSize:25
-  },
-  select:{
-    width:'100%',
-    maxWidth:600
+function App () {
+  const [authors, setAuthors] = useState([])
+
+  useEffect(() => {
+    const fetchData = async () => {
+      const result = await fetch('http://localhost:3001/authors')
+      const jsonResult = await result.json()
+
+      setAuthors(jsonResult)
+    }
+
+    fetchData()
+  }, [])
+
+  const submitAuthor = async () => {
+    const myData = {
+      avatar: 'https://picsum.photos/id/1014/100/100',
+      'avatar-full': 'https://picsum.photos/id/1014/600/600',
+      name: 'User 5'
+    }
+
+    const result = await fetch('http://localhost:3001/authors', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(myData)
+    })
+
+    const resultInJson = await result.json()
+    setAuthors(prev => [...prev, resultInJson])
   }
-}
 
-const options=[
-  {label:'React',value:'react'},
-  {label:'ReactNative',value:'react-native'},
-  {label:'JavaScript',value:'js'},
-  {label:'CSS',value:'css'},
-]
-
-function onChangeInput(value){
-  console.log(value);
-}
-function App() {
   return (
-    <div style={styles.app}>
-      <CustomSelect isMulti={true} style={styles.select} defaultValue={[options[3],options[2]]} onChange={onChangeInput} options={options} label="Choose a libary" />
+    <div className='authors__container'>
+      <button onClick={submitAuthor}>Submit a new one</button>
+      <h2>Authors:</h2>
+      {authors.map(author =>
+        <div key={author.id} className='authors__item'>
+          <img className='authors__image' src={author.avatar}/>
+          <h3>{author.name}</h3>
+        </div>)}
     </div>
-  );
-
-  
+  )
 }
 
-export default App;
+export default App

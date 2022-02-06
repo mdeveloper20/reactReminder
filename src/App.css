@@ -20,3 +20,21 @@
 .App-link {
   color: #09d3ac;
 }
+
+.authors__container{
+  padding:100px
+}
+
+.authors__item{
+  padding:20px;
+  display: flex;
+  align-items: center;
+}
+.authors__item:hover{
+  background-color: beige;
+}
+
+.authors__image{
+  width: 100px;
+  margin-right: 50px;
+}

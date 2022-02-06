@@ -16,6 +16,7 @@ function App () {
     fetchData()
   }, [])
 
+  
   const submitAuthor = async () => {
     const myData = {
       avatar: 'https://picsum.photos/id/1014/100/100',
